@@ -1,2 +1,3 @@
-# aoc
+# AoC Solutions
+
 AOC Solutions
