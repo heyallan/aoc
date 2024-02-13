@@ -2,20 +2,20 @@
 
 > AOC Challenges
 
-## Challenge: Day 1
+## Day 1: Part 1
 
 **Prompt #1:**
 
 > On each line, the calibration value can be found by combining the first digit and the last digit (in that order) to form a single two-digit number. What is the sum of all of the calibration values?
 
 
-plan:
+Plan:
 - brute force first, optimize later
 - break down the input data into lines
 - split the lines into single tokens
-- traverse each line to check the tokens one by on
-  - if token is number: add to line accumulator
-  - add line result to global result accumulator
+- traverse each line to evaluate each token
+  - if token is number: add to accumulator
+  - add accumulator values to final result
 
 ```js
 const input = `eightqrssm9httwogqshfxninepnfrppfzhsc...`;
@@ -43,7 +43,7 @@ for (const lineDouble of lineResults) {
 console.log(`Result is: ${result}`);
 ```
 
-## Challenge: Day 2
+## Day 1: Part 2
 
 ## Challenge: Day 3
 
