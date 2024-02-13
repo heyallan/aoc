@@ -1,6 +1,4 @@
-# AoC Challenges
-
-> Using JavaScript as my primary language
+# Advent Of Code (JavaScript)
 
 ## Day 1: Part 1
 
