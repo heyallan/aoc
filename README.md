@@ -15,7 +15,7 @@ Plan:
 - split the lines into single tokens
 - traverse each line to evaluate each token
   - if token is number: add to accumulator
-  - add accumulator values to final result
+- add accumulator values to final result
 
 ```js
 const input = `eightqrssm9httwogqshfxninepnfrppfzhsc...`;
