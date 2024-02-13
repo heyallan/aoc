@@ -7,7 +7,7 @@
 
 
 **Plan:**
-- brute force solution first, optimize later
+- brute force first, optimize later
 - split text into lines
 - split the lines into tokens
 - iterate lines to evaluate tokens
