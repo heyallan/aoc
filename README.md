@@ -22,6 +22,7 @@ treb7uchet`;
 let output = 0;
 
 const lines = input.split('\n');
+
 const firstAndLastDigits = [];
 
 for(const currentLine of lines) {
@@ -70,6 +71,7 @@ const textDigits = [['zero', 0], ['one', 1], ['two', 2], ['three', 3], ['four', 
 let output = 0;
 
 const lines = input.split('\n');
+
 const firstAndLastDigits = [];
 
 for(const currentLine of lines) {
