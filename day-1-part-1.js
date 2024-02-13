@@ -25,13 +25,11 @@ let result = null;
 for (const currentLine of lines) {
 	let digitsInCurrentLine = [];
 	const tokens = currentLine.split('');
-
 	// tokens
 	digitsInCurrentLine = tokens.filter(function(token) {
 		// save numeric tokens
 		return parseInt(token);
 	});
-
 	// get first & last of this line
 	const firstDigit = digitsInCurrentLine[0];
 	const lastDigit = digitsInCurrentLine[digitsInCurrentLine.length - 1];
