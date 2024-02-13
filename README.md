@@ -1,7 +1,5 @@
 # AoC Challenges
 
-> AOC Challenges
-
 ## Day 1: Part 1
 
 **Prompt #1:**
@@ -45,6 +43,8 @@ console.log(`Result is: ${output}`);
 ```
 
 ## Day 1: Part 2
+
+
 
 ## Challenge: Day 3
 
