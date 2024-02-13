@@ -22,7 +22,7 @@ treb7uchet`;
 
 const lines = input.split('\n');
 
-let result = null;
+let result = 0;
 
 // lines
 for (const currentLine of lines) {
@@ -40,7 +40,7 @@ for (const currentLine of lines) {
 	result += parseInt(`${firstDigit}${lastDigit}`);
 }
 
-console.assert(142 === result, `Expected: 142; Actual: ${result}:`)
+console.assert(142 === result, `Expected: 142; Actual: ${result}:`);
 ```
 
 ## Day 1: Part 2
@@ -68,7 +68,7 @@ zoneight234
 
 const textualNumbers = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9 };
 const lines = input.split('\n');
-let result = null;
+let result = 0;
 
 // lines
 for(const currentLine of lines) {
@@ -121,7 +121,7 @@ Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
 Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
 Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green`;
 
-let result = null;
+let result = 0;
 
 const bag = {
 	red: 12,
@@ -192,9 +192,9 @@ for (const currentGame of games) {
 	gameId = parseInt(gameId.split(' ')[1]);
 	setsInThisGame = setsInThisGame.split(';');
 	const cubesInThisGame = {
-		red: null,
-		green: null,
-		blue: null
+		red: 0,
+		green: 0,
+		blue: 0
 	}
 	// sets
 	for (const currentSet of setsInThisGame) {

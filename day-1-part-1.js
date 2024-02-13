@@ -19,7 +19,7 @@ treb7uchet`;
 
 const lines = input.split('\n');
 
-let result = null;
+let result = 0;
 
 // lines
 for (const currentLine of lines) {
@@ -37,4 +37,4 @@ for (const currentLine of lines) {
 	result += parseInt(`${firstDigit}${lastDigit}`);
 }
 
-console.assert(142 === result, `Expected: 142; Actual: ${result}:`)
+console.assert(142 === result, `Expected: 142; Actual: ${result}:`);

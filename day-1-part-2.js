@@ -23,7 +23,7 @@ zoneight234
 
 const textualNumbers = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9 };
 const lines = input.split('\n');
-let result = null;
+let result = 0;
 
 // lines
 for(const currentLine of lines) {

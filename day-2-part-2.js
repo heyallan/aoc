@@ -33,9 +33,9 @@ for (const currentGame of games) {
 	gameId = parseInt(gameId.split(' ')[1]);
 	setsInThisGame = setsInThisGame.split(';');
 	const cubesInThisGame = {
-		red: null,
-		green: null,
-		blue: null
+		red: 0,
+		green: 0,
+		blue: 0
 	}
 	// sets
 	for (const currentSet of setsInThisGame) {
