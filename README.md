@@ -50,12 +50,13 @@ console.log(`Result is: ${output}`);
 > Some of the digits are spelled out with letters: one, two, three, four, five, six, seven, eight, and nine count as valid "digits". Find the real first and last digit on each line.
 
 **Plan:**
-- save as above but little variation
+- same as above but little variation
 - final value is still a number so the same math still applies
-- text numbers exist only within input
+- text numbers are part of input
 - replace text numbers with digits
 - and continue using the same routine
-- some text numbers overlap each other, that's the only complexity, hence can't do replace-all, will have to check which number appears first and give it priority (annoying but feasible)
+- some textual numbers overlap each other, that's the only complexity, hence can't do a replace-all, will have to check which numbers order of appearance
+- the rest is the same
 
 ```js
 const input = `two1nine
