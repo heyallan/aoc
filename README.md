@@ -2,12 +2,12 @@
 
 ## Day 1: Part 1
 
-**Prompt #1:**
+**Prompt:**
 
-> On each line, the calibration value can be found by combining the first digit and the last digit (in that order) to form a single two-digit number. What is the sum of all of the calibration values?
+> On each line, the value can be found by combining the first digit and the last digit (in that order) to form a single two-digit number. What is the sum of all of the calibration values?
 
 
-Plan:
+**Plan:**
 - brute force first, optimize later
 - break down the input data into lines
 - split the lines into single tokens
