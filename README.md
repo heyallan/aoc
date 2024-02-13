@@ -17,13 +17,10 @@
 - add accumulator values to final result
 
 ```js
-const input = `two1nine
-eightwothree
-abcone2threexyz
-xtwone3four
-4nineeightseven2
-zoneight234
-7pqrstsixteen`;
+const input = `1abc2
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet`;
 let output = 0;
 
 const lines = input.split('\n');
@@ -56,10 +53,11 @@ console.log(`Result is: ${output}`);
 
 **Plan:**
 - similar routine but little variation
-- final value is still a number so same math still applies
+- final value is still a number so the same math still applies
 - text numbers exist only within input
 - replace text numbers with digits
-- and continue using the rest of the same routine
+- and continue using the same routine
+- some text numbers overlap each other, that's the only complexity, hence can't do replace-all, will have to check which number appears first and give it priority (annoying but feasible)
 
 ## Challenge: Day 3
 
@@ -78,6 +76,18 @@ const lines = input.split('\n');
 const firstAndLastDigits = [];
 
 for(const currentLine of lines) {
+
+    // not the best performance, but practical solution, optimize later
+    // transform text into digits
+    // everything else stays the same
+    for (const [index, token] of currentLine.split('').entries()) {
+        for (const [number, value] of textDigits) {
+            if (currentLine.substring(index).startsWith(number)) {
+                currentLine = currentLine.replace(number, value);
+            }
+        }
+    }
+
     let digitsOfCurrentLine = '';
     const tokens = currentLine.split('');
     for (const [index, currentToken] of tokens.entries()) {
