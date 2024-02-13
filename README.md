@@ -26,7 +26,7 @@ const lines = input.split('\n');
 
 const firstAndLastDigits = [];
 
-for(const currentLine of lines) {
+for (const currentLine of lines) {
     let digitsOfCurrentLine = '';
     const tokens = currentLine.split('');
     for (const currentToken of tokens) {
