@@ -19,28 +19,29 @@ Plan:
 
 ```js
 const input = `eightqrssm9httwogqshfxninepnfrppfzhsc...`;
-let result = 0;
-const lines = input.split('\n');
-const lineResults = [];
+let output = 0;
 
-for(const singleLine of lines) {
-    let lineNumbers = '';
-    const tokens = singleLine.split('');
-    for (const token of tokens) {
-        if (parseInt(token)) {
-            lineNumbers += token;
+const lines = input.split('\n');
+const firstAndLastDigits = [];
+
+for(const currentLine of lines) {
+    let digitsOfCurrentLine = '';
+    const tokens = currentLine.split('');
+    for (const currentToken of tokens) {
+        if (parseInt(currentToken)) {
+            digitsOfCurrentLine += currentToken;
         }
     }
-    const firstNumber = lineNumbers[0];
-    const lastNumber = lineNumbers[lineNumbers.length - 1];
-    lineResults.push(`${firstNumber}${lastNumber}`);
+    const firstDigit = digitsOfCurrentLine[0];
+    const lastDigit = digitsOfCurrentLine[digitsOfCurrentLine.length - 1];
+    firstAndLastDigits.push(`${firstDigit}${lastDigit}`);
 }
 
-for (const lineDouble of lineResults) {
-    result += parseInt(lineDouble);
+for (const currentPair of firstAndLastDigits) {
+    output += parseInt(currentPair);
 }
 
-console.log(`Result is: ${result}`);
+console.log(`Result is: ${output}`);
 ```
 
 ## Day 1: Part 2
