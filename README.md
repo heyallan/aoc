@@ -102,6 +102,8 @@ for(const currentLine of lines) {
 console.assert(281 === result, `Expected: 281; Actual: ${result};`);
 ```
 
+---
+
 ## Day 2: Part 1
 
 **Instructions:**
@@ -157,8 +159,6 @@ for (const currentGame of games) {
 
 console.assert(8 === result, `Expected: 8; Actual: ${result};`);
 ```
-
----
 
 ## Day 2: Part 2
 
