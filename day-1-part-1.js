@@ -1,7 +1,7 @@
 /**
  * Instructions:
  * - On each line, the value can be found by combining the first digit and the last digit (in that order) to form a single two-digit number.
- * - What is the sum of all of the calibration values?
+ * - What is the sum of all the calibration values?
  *
  * Plan:
  * - brute force first, optimize later
@@ -9,7 +9,7 @@
  * - split the lines into tokens
  * - iterate lines to evaluate tokens
  * - if token is number: add to accumulator
- * - add accumulator values to final result
+ * - add up values
  */
 
 const input = `1abc2

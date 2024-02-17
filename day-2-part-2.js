@@ -8,7 +8,7 @@
  * - same as previous but little variation
  * - check if values can make current game possible
  * - multiply all id's of possible games
- * - result is equal to all values multiplied
+ * - result
  */
 
 const input = `Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
