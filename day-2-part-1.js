@@ -17,8 +17,6 @@ Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
 Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
 Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green`;
 
-let result = 0;
-
 const bag = {
 	red: 12,
 	green: 13,
@@ -28,27 +26,27 @@ const bag = {
 const games = input.split(`\n`);
 
 // games
-for (const currentGame of games) {
+const result = games.reduce(function(sum, currentGame) {
 	let [gameId, setsInThisGame] = currentGame.trim().split(': ');
 	gameId = parseInt(gameId.split(' ')[1]);
+	// sets: ["3 red, 4 blue, 5 green", "7 red, 8 blue, 9 green"]
 	setsInThisGame = setsInThisGame.split(';');
-	let gameIsPossible = true;
-	// sets
-	for (const currentSet of setsInThisGame) {
-		// cubes
-		for (const pair of currentSet.trim().split(', ')) {
-			const [value, color] = pair.trim().split(' ');
-			// if value go beyond what's in the bag this game is not possible
-			if (value > bag[color]) {
-				// discard impossible game
-				gameIsPossible = false;
-			}
+	// set: "3 red, 4 blue, 5 green" // check if sets are viable
+	const setsOutcomes = setsInThisGame.reduce(function(outcome, currentSet) {
+		// "3 red"
+		for (const colorSet of currentSet.trim().split(', ')) {
+			const [currentCount, color] = colorSet.trim().split(' ');
+			// if count remains below what's in the bag, this game is possible
+			outcome.push(currentCount <= bag[color]);
 		}
-	}
-	// save possible games
-	if (gameIsPossible) {
-		result += gameId;
-	}
-}
+		return outcome;
+	}, []);
+	// if all sets are viable this game is possible
+	const gameIsPossible = setsOutcomes.every(function(value) {
+		return value === true;
+	});
+	// udd up possible games
+	return sum + (gameIsPossible ? gameId : 0);
+}, 0);
 
 console.assert(8 === result, `Expected: 8; Actual: ${result};`);

@@ -47,7 +47,7 @@ const result = lines.reduce(function(sum, currentLine) {
 	const firstDigit = digits[0];
 	const lastDigit = digits[digits.length - 1];
 	// add up result
-	return sum += parseInt(`${firstDigit}${lastDigit}`);
+	return sum + parseInt(`${firstDigit}${lastDigit}`);
 }, 0);
 
 console.assert(281 === result, `Expected: 281; Actual: ${result};`);

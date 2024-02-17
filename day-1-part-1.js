@@ -30,7 +30,7 @@ const result = lines.reduce(function(sum, currentLine) {
 	const firstDigit = digits[0];
 	const lastDigit = digits[digits.length - 1];
 	// add up
-	return sum += parseInt(`${firstDigit}${lastDigit}`);
+	return sum + parseInt(`${firstDigit}${lastDigit}`);
 }, 0);
 
 console.assert(142 === result, `Expected: 142; Actual: ${result}:`);

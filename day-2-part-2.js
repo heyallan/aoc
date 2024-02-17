@@ -17,40 +17,28 @@ Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
 Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
 Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green`;
 
-let result = 0;
-
-const bag = {
-	red: 12,
-	green: 13,
-	blue: 14
-};
-
 const games = input.split(`\n`);
 
 // games
-for (const currentGame of games) {
+const result = games.reduce(function(total, currentGame) {
 	let [gameId, setsInThisGame] = currentGame.trim().split(': ');
 	gameId = parseInt(gameId.split(' ')[1]);
+	// sets: ["3 red, 4 blue, 5 green", "7 red, 8 blue, 9 green"]
 	setsInThisGame = setsInThisGame.split(';');
-	const cubesInThisGame = {
-		red: 0,
-		green: 0,
-		blue: 0
-	}
-	// sets
-	for (const currentSet of setsInThisGame) {
+	// cubesInThisGame: "3 red, 4 blue, 5 green" // check if sets are viable
+	const cubesInThisGame = setsInThisGame.reduce(function(totalCubes, currentSet) {
 		// cubes
-		for (const pair of currentSet.trim().split(', ')) {
-			const [value, color] = pair.trim().split(' ');
-			// save highest values
-			// highest values represent the minimum required to make this game possible
-			if (value > cubesInThisGame[color]) {
-				cubesInThisGame[color] = parseInt(value);
+		for (const colorSet of currentSet.trim().split(', ')) {
+			const [currentCount, color] = colorSet.trim().split(' ');
+			// save highest values (minimum required to make this game possible)
+			if (currentCount > totalCubes[color]) {
+				totalCubes[color] = parseInt(currentCount);
 			}
 		}
-	}
+		return totalCubes;
+	}, { red: 0, green: 0, blue: 0 });
 	// multiply highest values (minimum required to make this game possible)
-	result += cubesInThisGame.red * cubesInThisGame.green * cubesInThisGame.blue;
-}
+	return total + (cubesInThisGame.red * cubesInThisGame.green * cubesInThisGame.blue);
+}, 0);
 
 console.assert(2286 === result, `Expected: 2286; Actual ${result};`);
