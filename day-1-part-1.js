@@ -23,12 +23,12 @@ const result = lines.reduce(function(sum, currentLine) {
 	// tokens
 	const tokens = currentLine.split('');
 	// save numeric value
-	let digitsInCurrentLine = tokens.filter(function(token) {
+	let digits = tokens.filter(function(token) {
 		return parseInt(token);
 	});
 	// get first & last of current line
-	const firstDigit = digitsInCurrentLine[0];
-	const lastDigit = digitsInCurrentLine[digitsInCurrentLine.length - 1];
+	const firstDigit = digits[0];
+	const lastDigit = digits[digits.length - 1];
 	// add up
 	return sum += parseInt(`${firstDigit}${lastDigit}`);
 }, 0);

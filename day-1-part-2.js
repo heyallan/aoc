@@ -26,28 +26,26 @@ const textualNumbers = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, si
 const lines = input.split('\n');
 
 const result = lines.reduce(function(sum, currentLine) {
-	let digitsInCurrentLine = [];
 	const tokens = currentLine.split('');
-
-	// tokens
-	for (const [index, currentToken] of tokens.entries()) {
+	const digits = tokens.reduce(function(accumulator, currentToken, index, tokens) {
 		// save regular numbers
 		if (parseInt(currentToken)) {
-			digitsInCurrentLine.push(currentToken);
+			accumulator.push(currentToken);
 		}
 		// check for textual numbers
 		else {
 			for (const [number, value] of Object.entries(textualNumbers)) {
 				// save textual numbers
 				if (currentLine.substring(index).startsWith(number)) {
-					digitsInCurrentLine.push(value);
+					accumulator.push(value);
 				}
 			}
 		}
-	}
+		return accumulator;
+	}, []);
 	// get first & last digits in this line
-	const firstDigit = digitsInCurrentLine[0];
-	const lastDigit = digitsInCurrentLine[digitsInCurrentLine.length - 1];
+	const firstDigit = digits[0];
+	const lastDigit = digits[digits.length - 1];
 	// add up result
 	return sum += parseInt(`${firstDigit}${lastDigit}`);
 }, 0);
