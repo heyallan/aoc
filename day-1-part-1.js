@@ -19,22 +19,18 @@ treb7uchet`;
 
 const lines = input.split('\n');
 
-let result = 0;
-
-// lines
-for (const currentLine of lines) {
-	let digitsInCurrentLine = [];
-	const tokens = currentLine.split('');
+const result = lines.reduce(function(sum, currentLine) {
 	// tokens
-	digitsInCurrentLine = tokens.filter(function(token) {
-		// save numeric tokens
+	const tokens = currentLine.split('');
+	// save numeric value
+	let digitsInCurrentLine = tokens.filter(function(token) {
 		return parseInt(token);
 	});
-	// get first & last of this line
+	// get first & last of current line
 	const firstDigit = digitsInCurrentLine[0];
 	const lastDigit = digitsInCurrentLine[digitsInCurrentLine.length - 1];
-	// save result
-	result += parseInt(`${firstDigit}${lastDigit}`);
-}
+	// add up
+	return sum += parseInt(`${firstDigit}${lastDigit}`);
+}, 0);
 
 console.assert(142 === result, `Expected: 142; Actual: ${result}:`);
