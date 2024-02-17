@@ -22,34 +22,34 @@ zoneight234
 7pqrstsixteen`;
 
 const textualNumbers = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9 };
-const lines = input.split('\n');
-let result = 0;
 
-// lines
-for(const currentLine of lines) {
+const lines = input.split('\n');
+
+const result = lines.reduce(function(sum, currentLine) {
 	let digitsInCurrentLine = [];
 	const tokens = currentLine.split('');
 
 	// tokens
 	for (const [index, currentToken] of tokens.entries()) {
-		// save digit numbers
+		// save regular numbers
 		if (parseInt(currentToken)) {
 			digitsInCurrentLine.push(currentToken);
 		}
-		// save textual numbers
+		// check for textual numbers
 		else {
 			for (const [number, value] of Object.entries(textualNumbers)) {
+				// save textual numbers
 				if (currentLine.substring(index).startsWith(number)) {
 					digitsInCurrentLine.push(value);
 				}
 			}
 		}
 	}
-	// get first & last of this line
+	// get first & last digits in this line
 	const firstDigit = digitsInCurrentLine[0];
 	const lastDigit = digitsInCurrentLine[digitsInCurrentLine.length - 1];
 	// add up result
-	result += parseInt(`${firstDigit}${lastDigit}`);
-}
+	return sum += parseInt(`${firstDigit}${lastDigit}`);
+}, 0);
 
 console.assert(281 === result, `Expected: 281; Actual: ${result};`);
