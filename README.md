@@ -1,4 +1,4 @@
-# Advent Of Code (JavaScript) (Days 1, 2)
+# Advent Of Code (JavaScript)
 
 ## Day 1: Part 1
 
