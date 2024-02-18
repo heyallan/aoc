@@ -27,20 +27,20 @@ const lines = input.split('\n');
 const result = lines.reduce(function(sum, currentLine, currentLineIndex) {
 
 	// number groups [['12', data], ['34', data], ['56', data]]
-	const numGroups = currentLine.matchAll(/\d+/g); // value includes start index, which is vital for solving this puzzle 🙌
+	const matchList = currentLine.matchAll(/\d+/g); // value includes start index, which is vital for solving this puzzle 🙌
 
-	// group ['12', data]
-	for (const group of numGroups) {
+	// match ['12', data]
+	for (const match of matchList) {
 		// number
-		const number = parseInt(group[0]);
+		const number = parseInt(match[0]);
 
 		// search range (capped to prevent out-of-bounds error)
-		const sliceStart = Math.max(group.index - 1, 0);
-		const sliceEnd   = Math.min((group.index + group[0].length), (currentLine.length - 1));
+		const sliceStart = Math.max(match.index - 1, 0);
+		const sliceEnd   = Math.min((match.index + match[0].length), (currentLine.length - 1));
 
 		// adjacent values
-		const prevToken = currentLine[group.index - 1];
-		const nextToken = currentLine[group.index + group[0].length];
+		const prevToken = currentLine[match.index - 1];
+		const nextToken = currentLine[match.index + match[0].length];
 		const prevLineTokens = lines[currentLineIndex - 1]?.slice(sliceStart, sliceEnd+1); // end +1 because slice does not include last item by default 😒
 		const nextLineTokens = lines[currentLineIndex + 1]?.slice(sliceStart, sliceEnd+1); // end +1 because slice does not include last item by default 😒
 
