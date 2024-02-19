@@ -6,7 +6,11 @@
  * - add them all up
  *
  * Plan:
- * -
+ * - split lines
+ * - extract symbols
+ * - create search range (slice)
+ * - search for adjacent numbers based on range (slice)
+ * - add up values
  */
 
 const input = `..........
