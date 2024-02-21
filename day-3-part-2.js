@@ -41,7 +41,7 @@ const result = lines.reduce(function(sum, currentLine, currentLineIndex) {
 		const sliceStart = Math.max(symbolMatch.index - 1, 0);
 		const sliceEnd   = Math.min((symbolMatch.index + symbolMatch[0].length), (currentLine.length - 1));
 
-		// get numbers all numbers per line
+		// get all numbers per line
 		const currentLineNumbers = currentLine.matchAll(/\d+/g); /** iterable */
 		const prevLineNumbers = lines[currentLineIndex - 1]?.matchAll(/\d+/g); /** iterable || undefined */
 		const nextLineNumbers = lines[currentLineIndex + 1]?.matchAll(/\d+/g); /** iterable || undefined */
@@ -50,9 +50,7 @@ const result = lines.reduce(function(sum, currentLine, currentLineIndex) {
 		const adjacentNumbers = [...currentLineNumbers, ...prevLineNumbers, ...nextLineNumbers].reduce(function(accumulator, numMatch) {
 			const numStart = numMatch.index;
 			const numEnd = numMatch.index + numMatch[0].length - 1;
-			if (numStart <= sliceEnd && numEnd >= sliceStart) {
-				accumulator.push(numMatch[0]);
-			}
+			if (numStart <= sliceEnd && numEnd >= sliceStart) accumulator.push(numMatch[0]);
 			return accumulator;
 		}, []);
 
