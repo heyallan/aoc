@@ -1,3 +1,18 @@
+/**
+ * Instructions:
+ * - Winning numbers | numbers you have
+ * - figure out which of the numbers you have appear in the list of winning numbers
+ * - Card is worth 1 for the first match, then doubled three times for each of the three matches after the first
+ * - How many points are they worth in total?
+ *
+ * Plan:
+ * - split lines
+ * - extract numbers
+ * - extract winners
+ * - multiply values
+ * - add up values
+ */
+
 const input = `Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
 Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
 Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1
@@ -18,7 +33,7 @@ const result = lines.reduce(function(sum, line, lineIndex, lines) {
 	});
 
 	// multiply values
-	const currentLinePoints = matchingNumbers.reduce(function(accumulator, item, index, array) {
+	const currentLinePoints = matchingNumbers.reduce(function(accumulator, item, index) {
 		return (index === 0) ? 1 : accumulator * 2;
 	}, 0);
 
