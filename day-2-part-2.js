@@ -25,7 +25,7 @@ const result = games.reduce(function(total, currentGame) {
 	gameId = parseInt(gameId.split(' ')[1]);
 	setsInThisGame = setsInThisGame.split(';'); // ["3 red, 4 blue, 5 green", "7 red, 8 blue, 9 green"]
 
-	// count total cubes per color: "3 red, 4 blue, 5 green" // check if sets are viable
+	// count total cubes per color: "3 red, 4 blue, 5 green"
 	const cubesInThisGame = setsInThisGame.reduce(function(totalCubes, currentSet) {
 		// cubes
 		for (const colorSet of currentSet.trim().split(', ')) {
