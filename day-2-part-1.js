@@ -35,9 +35,9 @@ const result = games.reduce(function(sum, currentGame) {
 	const setsOutcomes = setsInThisGame.reduce(function(outcome, currentSet) {
 		// check colors: "3 red"
 		for (const colorSet of currentSet.trim().split(', ')) {
-			const [currentCount, color] = colorSet.trim().split(' ');
+			const [value, color] = colorSet.trim().split(' ');
 			// if counter remains below what's in the bag, this game is possible
-			outcome.push(currentCount <= bag[color]);
+			outcome.push(value <= bag[color]);
 		}
 		return outcome;
 	}, []);

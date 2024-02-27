@@ -29,10 +29,10 @@ const result = games.reduce(function(total, currentGame) {
 	const cubesInThisGame = setsInThisGame.reduce(function(totalCubes, currentSet) {
 		// cubes
 		for (const colorSet of currentSet.trim().split(', ')) {
-			const [currentCount, color] = colorSet.trim().split(' ');
+			const [value, color] = colorSet.trim().split(' ');
 			// save highest values (minimum required to make this game possible)
-			if (currentCount > totalCubes[color]) {
-				totalCubes[color] = parseInt(currentCount);
+			if (value > totalCubes[color]) {
+				totalCubes[color] = parseInt(value);
 			}
 		}
 		return totalCubes;
