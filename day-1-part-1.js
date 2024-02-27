@@ -23,7 +23,7 @@ const result = lines.reduce(function(sum, currentLine) {
 	// tokens
 	const tokens = currentLine.split('');
 	// save numeric value
-	let digits = tokens.filter(function(token) {
+	const digits = tokens.filter(function(token) {
 		return parseInt(token);
 	});
 	// get first & last of current line

@@ -29,23 +29,25 @@ const games = input.split(`\n`);
 const result = games.reduce(function(sum, currentGame) {
 	let [gameId, setsInThisGame] = currentGame.trim().split(': ');
 	gameId = parseInt(gameId.split(' ')[1]);
-	// sets: ["3 red, 4 blue, 5 green", "7 red, 8 blue, 9 green"]
-	setsInThisGame = setsInThisGame.split(';');
-	// set: "3 red, 4 blue, 5 green" // check if sets are viable
+	setsInThisGame = setsInThisGame.split(';'); // ["3 red, 4 blue, 5 green", "7 red, 8 blue, 9 green"]
+
+	// extract viable sets: "3 red, 4 blue, 5 green"
 	const setsOutcomes = setsInThisGame.reduce(function(outcome, currentSet) {
-		// "3 red"
+		// check colors: "3 red"
 		for (const colorSet of currentSet.trim().split(', ')) {
 			const [currentCount, color] = colorSet.trim().split(' ');
-			// if count remains below what's in the bag, this game is possible
+			// if counter remains below what's in the bag, this game is possible
 			outcome.push(currentCount <= bag[color]);
 		}
 		return outcome;
 	}, []);
+
 	// if all sets are viable this game is possible
 	const gameIsPossible = setsOutcomes.every(function(value) {
 		return value === true;
 	});
-	// udd up possible games
+
+	// udd up
 	return sum + (gameIsPossible ? gameId : 0);
 }, 0);
 

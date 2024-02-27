@@ -23,9 +23,9 @@ const games = input.split(`\n`);
 const result = games.reduce(function(total, currentGame) {
 	let [gameId, setsInThisGame] = currentGame.trim().split(': ');
 	gameId = parseInt(gameId.split(' ')[1]);
-	// sets: ["3 red, 4 blue, 5 green", "7 red, 8 blue, 9 green"]
-	setsInThisGame = setsInThisGame.split(';');
-	// cubesInThisGame: "3 red, 4 blue, 5 green" // check if sets are viable
+	setsInThisGame = setsInThisGame.split(';'); // ["3 red, 4 blue, 5 green", "7 red, 8 blue, 9 green"]
+
+	// count total cubes per color: "3 red, 4 blue, 5 green" // check if sets are viable
 	const cubesInThisGame = setsInThisGame.reduce(function(totalCubes, currentSet) {
 		// cubes
 		for (const colorSet of currentSet.trim().split(', ')) {
@@ -37,6 +37,7 @@ const result = games.reduce(function(total, currentGame) {
 		}
 		return totalCubes;
 	}, { red: 0, green: 0, blue: 0 });
+
 	// multiply highest values (minimum required to make this game possible)
 	return total + (cubesInThisGame.red * cubesInThisGame.green * cubesInThisGame.blue);
 }, 0);
